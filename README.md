@@ -18,4 +18,14 @@
        * Services are the permanent IP addresses that can be attached to a pod. If a pod destroys, services are not changed. 
        * If there are 4 pods with same service name, when service receives a request, it'll balance the requests to the 4 pods. 
 
-#### To be continued...
+#### ReplicaSets
+```kubectl create -f replicaset-definition.yml```
+
+```kubectl get replicaset```
+
+```kubectl delete replicaset myapp-replicaset [It also dletes underlying pods]```
+
+```kubectl replace -f replicaset-definition.yml```
+
+```kubectl scale --replicas=6 -f replicaset-definition.yml ```
+
