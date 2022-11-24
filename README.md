@@ -61,5 +61,10 @@
       Then edit the file to make the necessary changes, delete and re-create the pod.
 
       Use the ``` kubectl edit pod <pod-name> ``` command to edit pod properties.
-
+### Replication Controller & Replicaset
+    - To scale existing replicaset, run the following:
+      ``` kubectl replace -f replicaset-definition.yml ```
+      ``` kubectl scale --replicas=6 -f replicaset-definition.yml <--- number of replicas will not be updated in yml file. but pods will be created/scaled```
+      ``` kubectl scale --replicas=6 replicaset myapp-replicaset```
+      
 
