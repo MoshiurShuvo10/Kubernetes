@@ -76,3 +76,7 @@
  ### scale replicaset to 5 pods
      - ``` kubectl scale replicaset new-replica-set --replicas=5```
      - OR we can just edit the rc.yml file. replicas will be automatically scaledup/scale down
+     
+### switch to another namespace permanently
+    - ``` kubectl config set-context $(kubectl config current-context) --namespace=dev ```
+    - to view pods of default, ``` kubectl get pods --namespace=default``` ``` kubectl get pods --namespace=prod```
