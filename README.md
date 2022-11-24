@@ -67,4 +67,12 @@
       ``` kubectl scale --replicas=6 -f replicaset-definition.yml <--- number of replicas will not be updated in yml file. but pods will be created/scaled```
       ``` kubectl scale --replicas=6 replicaset myapp-replicaset```
       
-
+### Edit image name of pods inside an existing replicaset:
+    - ``` kubectl edit rs new-replica-set```
+    - edit the image name
+    - delete old pods ``` kubectl delete pod pod1 pod2 pod3 ```
+    - As we edited the rc.yml file, the rc will be created as well as pods with the new updated image.
+    
+ ### scale replicaset to 5 pods
+     - ``` kubectl scale replicaset new-replica-set --replicas=5```
+     - OR we can just edit the rc.yml file. replicas will be automatically scaledup/scale down
