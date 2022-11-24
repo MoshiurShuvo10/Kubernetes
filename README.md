@@ -80,3 +80,22 @@
 ### switch to another namespace permanently
     - ``` kubectl config set-context $(kubectl config current-context) --namespace=dev ```
     - to view pods of default, ``` kubectl get pods --namespace=default``` ``` kubectl get pods --namespace=prod```
+    
+### connect to a service of different namespace: 
+    - ``` app1.connect("service-name.namespace_name.svc.cluster.local") ```
+    
+### Resource-quota
+   
+   ``` apiVersion: v1
+    kind: ResourceQuota
+    metadata:
+      name: compute-quota
+      namaspace: dev
+    spec:
+      hard:
+        pods: "10"
+        requests.cpu: "4"
+        requests.memor: 5Gi
+        limits.cpu: "10"
+        limits.memory: 10G ```
+    - then run ``` kubectl create -f compute-quota.yml ```
