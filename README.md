@@ -29,3 +29,26 @@
 
 ```kubectl scale --replicas=6 -f replicaset-definition.yml ```
 
+## Commands
+   - kubectl run hello-minicube
+   - kubectl cluster-info
+   - kubectl get nodes
+   - kubectl run nginx --image nginx
+   - kubectl get pods
+### pod-definition.yml
+   ```
+   apiVersion: v1
+   kind: Pod
+   metadata: <------------------ dictionary
+     name: myapp-pod
+     labels: <------------------ dictionary
+       app: myapp
+       type: frontend
+   spec:
+     containers: <------------- list
+     - name: nginx-container <----- first element of list
+       image: nginx
+   ```
+   - To create pod from above pod-definition, run ``` kubectl create -f pod-definition.yml ```
+   - To view details of this pod, run ``` kubectl describe myapp-pod ```
+   
