@@ -182,3 +182,18 @@ Both the above commands have their own challenges. While one of it cannot accept
 Reference:
 
 https://kubernetes.io/docs/reference/kubectl/conventions/
+
+
+
+
+### Imparative commands
+    - Deploy a redis pod using the redis:alpine image with the labels set to tier=db.
+    ``` kubectl run redis --image=redis:alpine --dry-run=client -oyaml > redis-pod.yaml ```
+     ``` kubectl create -f redis-pod.yaml ```
+     
+     OR, ``` kubectl run redis -l tier=db --image=redis:alpine ```
+     
+    - Create a service redis-service to expose the redis application within the cluster on port 6379.
+    ``` kubectl expose pod redis --port=6379 --name redis-service ```
+    - Create a deployment named webapp using the image kodekloud/webapp-color with 3 replicas.
+    ``` kubectl create deployment webapp --image=kodekloud/webapp-color --replicas=3 ```
